@@ -41,3 +41,28 @@ class Library { //class constructor for library
     this.books = [];
   }
 }
+
+const library = new Library()
+
+//Global Element creations for onload and function revokes
+
+const listItem = document.createElement('li');
+const listItemContent = document.createElement('a');
+const plusIcon = document.createElement('img');
+const contentPara = document.createElement('p');
+
+//GLOBAL UI DECLARATIONS
+
+const bookList = document.getElementById('book-list');
+const searchInput = document.getElementById('search');
+const newBookBtn = document.getElementById('new-book-create-button');
+const deleteLibraryBtn = document.getElementById('header-button-del');
+const changeModeBtn = document.getElementById('display-mode-button');
+const bookCreateForm = document.getElementById('book-create-form');
+const overlayWindow = document.getElementById('overlayWindow');
+const bookCreateModal = document.getElementById('book-create-modal');
+const errorMsg = document.getElementById('error-message');
+const submitBtn = document.getElementById('submit-button');
+const totalBooks = document.getElementById('total-books');
+const totalRead = document.getElementById('read-books');
+const totalPages = document.getElementById('total-pages');
