@@ -303,3 +303,10 @@ const searchBookName = () => { // a function to search for a book in the library
     }
   }
 }
+
+const checkZero = () => { //a function preventing the user enter multiple 0's
+  const value = document.getElementById("pages").value;
+  if(value.startsWith('0')){
+    document.getElementById("pages").value = '0';
+  }
+}
