@@ -207,4 +207,44 @@ const removeBookFromLibrary = (e) => { //function to remove a chosen book from t
   })
 }
 
+const addBookToLibrary = (e) => { // a function to add a newly created book into the library
+  e.preventDefault() // prevent to create unwanted docs accidentally
+  const newBook = getBookByInput() // book data will be called by another function
+
+  if(title.value === '' || author.value === '' || pages.value==='') { // preventing to add a new book with missing data or blank page
+    Swal.fire({  //a special embedded function to have a customized alert box with better UI and styling
+      icon: 'error',
+      title: 'Warning',
+      text: 'Please enter all values!'
+    })
+    return;
+    } if (pages.value <= '0') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Warning',
+        text: 'Please enter at least a positive integer!'
+      })
+    return;
+  }
+
+  if (library.searchInLibrary(newBook)) { //a static function inside the library will be revoked to search in the library
+    errorMsg.textContent = 'This book is already in your library'
+    errorMsg.classList.add('active')
+    return
+  }
+
+  Swal.fire({ //a special embedded function to have a customized alert box with better UI and styling
+    position: 'top-end',
+    icon: 'success',
+    title: 'Your book has been saved',
+    showConfirmButton: false,
+    timer: 1500
+  })
+
+  library.addBook(newBook); //a static function inside the library will be revoked to add a new book in the library
+  saveInLocalStore(); // saving books to call again and again when the web page refreshed or reopened
+  updateBooksContainer(); //updating the library
+  closeBookCreateModal(); //book create form will be closed when completed
+}
+
 
