@@ -247,4 +247,11 @@ const addBookToLibrary = (e) => { // a function to add a newly created book into
   closeBookCreateModal(); //book create form will be closed when completed
 }
 
+const getBookByInput = () => { // a function to keep the data  entered in book form to be revoked by another function
+  const title = document.getElementById('title').value
+  const author = document.getElementById('author').value
+  const pages = document.getElementById('pages').value
+  const status = document.getElementById('checkBox').checked
+  return new Book(title, author, pages, status)
+}
 
