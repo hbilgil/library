@@ -85,3 +85,16 @@ const onLoadElementCreation = () => { //new book creation card will be handled b
   contentPara.textContent ='Add a new book';
   listItemContent.appendChild(contentPara);
 }
+
+const openBookCreateModal = () => { //hidden contents will be active when pushed new book create buttons
+  bookCreateForm.reset() //values inside the form will be deleted if any..
+  overlayWindow.classList.add('active')
+  bookCreateModal.classList.add('active')
+}
+
+const closeBookCreateModal = () => { //active contents will be hidden again when pushed submit button or overlayWindow
+  overlayWindow.classList.remove('active')
+  bookCreateModal.classList.remove('active')
+  errorMsg.classList.remove('active') //error message will be gone if any..
+  errorMsg.textContent = '' //error message text will be gone if any..
+}
