@@ -1,0 +1,33 @@
+
+/*FULL web-page style declarations*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+@font-face { /*allows a custom font to be loaded on web-page*/
+  font-family: 'Sansation Light';
+  src: url(fonts/Sansation\ Light.ttf);
+}
+
+body {
+  font-family: 'Sansation Light', sans-serif;
+  background-color: white; /*for toggling mode, a white web-page is declared*/
+}
+
+body.dark-mode { /*dark-mode is handled by a JavaScript function dinamically*/
+  background-color: black;
+  color: white; /*for toggling mode, color is declared*/
+}
+  
+.container { /*grid layout declared*/
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+  grid-template-columns: 5fr 1fr;
+  position: relative; /*for fixed items in web-page, container position is declared relative*/
+}
