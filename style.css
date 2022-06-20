@@ -363,3 +363,92 @@ li {
   color: fuchsia;
 }
 
+/*-------BOOK CREATE MODAL(Hidden section)-------*/
+
+.overlayWindow {
+  display: none; /*hidden as it will be handled by JavaScript code*/
+  position: fixed;/*the div will be fixed even if mouse scrolled down*/
+  top: 0; /*fixed to the whole page when it is active*/
+  left: 0;
+  width: 100%; /*covers whole page*/
+  height: 100%; /*covers whole page*/
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0.6;
+}
+      
+.overlayWindow.active {
+  display: block; /*visible when active*/
+}
+  
+.book-create-modal {
+  position: fixed; /*hidden as it will be handled by JavaScript code*/
+  z-index: 1; /*in front of the overlayWindow*/
+  top: 50%; /*fixed to the center of the page when it is active*/
+  left: 50%;
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  color: black;
+  text-align: center;
+  font-size: 20px;
+  user-select: none;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+}
+    
+.book-create-modal.active {
+  transform: translate(-50%, -50%) scale(1); /*visible when active*/
+}
+    
+.add-book-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+  
+.input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+}
+  
+input[type='text'],
+input[type='number'] {
+  cursor: text;
+}
+  
+.error-message {
+  display: none; /*hidden as it will be handled by JavaScript code*/
+  color: red;
+}
+  
+.error-message.active {
+  display: block; /*visible when active*/
+  margin-top: -15px;
+}
+  
+.status-check {
+  display: flex;
+  gap: 15px;
+}
+  
+.check-box {
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  accent-color: white;
+}
+    
+.submit-button {
+  padding: 10px 15px;
+  background-color: #9fff9c;
+  border-radius: 8px;
+  width: 100%;
+  transition: filter 0.15s ease-in-out;
+}
+  
+.submit-button:hover {
+  filter: brightness(90%);
+}
