@@ -128,4 +128,50 @@ const updateBookStatistics = () => { // function to keep and update book statist
   totalRead.textContent = readCount;
 }
 
+const createBookCard = (book) => { // function to create a bookcard by creating data, DOM, classes for styling
+
+  //DOM Elements creation
+
+  const bookCard = document.createElement('li');
+  const deleteBookCardBtn = document.createElement('button')
+  const cardTitle = document.createElement('h5');
+  const cardAuthor = document.createElement('p')
+  const cardPages = document.createElement('p')
+  const cardStatusBtn = document.createElement('button')
+
+  //Classes for styling
+  bookCard.classList.add('book-card')
+  cardTitle.classList.add('card-title')
+  cardStatusBtn.classList.add('status-check-button')
+  deleteBookCardBtn.classList.add('delete')
+
+  //Function scope add event Listeners for newly created elements
+  cardStatusBtn.addEventListener('click', toggleRead)
+  deleteBookCardBtn.addEventListener('click', removeBookFromLibrary)
+
+  //Card Texts
+  cardTitle.textContent = `${book.title}`
+  cardAuthor.textContent = `${book.author}`
+  cardPages.textContent = `${book.pages}`
+
+  //Classes and styling in different situations
+  if (book.status) {
+    bookCard.style.borderTopColor = ("green");
+    cardStatusBtn.textContent = 'Read'
+    cardStatusBtn.classList.add('status-button-green')
+
+  } else {
+    bookCard.style.borderTopColor = ("red");
+    cardStatusBtn.textContent = 'Not Read'
+    cardStatusBtn.classList.add('status-button-red')
+  }
+
+  //DOM Elements allocated
+  bookList.appendChild(bookCard)
+  bookCard.appendChild(deleteBookCardBtn)
+  bookCard.appendChild(cardTitle)
+  bookCard.appendChild(cardAuthor)
+  bookCard.appendChild(cardPages)
+  bookCard.appendChild(cardStatusBtn)
+}
 
