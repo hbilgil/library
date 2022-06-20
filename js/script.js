@@ -98,3 +98,12 @@ const closeBookCreateModal = () => { //active contents will be hidden again when
   errorMsg.classList.remove('active') //error message will be gone if any..
   errorMsg.textContent = '' //error message text will be gone if any..
 }
+
+const updateBooksContainer = () => { //update the book list everytime if any books created or removed
+  resetBookList()
+  for (let book of library.books) { // for loop of array of book objects
+    createBookCard(book)
+  }
+  updateBookStatistics() //book statistics will be renewed
+  onLoadElementCreation() //new book creation card comes after new book cards everytime
+}
