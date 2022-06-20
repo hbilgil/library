@@ -340,3 +340,26 @@ li {
   list-style-type: none; /*list items without a marker*/
 }
 
+/*------FOOTER-DIV-----*/
+  
+.footer {
+  grid-column: 1 / 3;
+  background-color: #042268;
+  color: white;
+  text-align: center;
+  min-height: 30px;
+}
+
+.footer > p {
+  margin-top: 8px;
+}
+
+.footer a {
+  text-decoration: none; /*non-underlined link*/
+  color: white;
+}
+  
+.footer a:hover { /*when mouse moved around link*/
+  color: fuchsia;
+}
+
