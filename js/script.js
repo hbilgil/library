@@ -288,3 +288,18 @@ const deleteAllBooks = () => { // a function to delete ALL books in the library 
     }
   })
 }
+
+const searchBookName = () => { // a function to search for a book in the library by Search Input at header section
+  let searchValue = document.getElementById('search').value.toUpperCase(); // turning into a standart letter case to prevent errors
+  let bookList = document.getElementById('book-list');
+  let book = bookList.querySelectorAll('li.book-card');
+
+  for(let i=0; i < book.length; i++) {
+    let bookTitle = book[i].getElementsByTagName('h5')[0];
+    if(bookTitle.innerHTML.toUpperCase().indexOf(searchValue) > -1) {
+      book[i].style.display = '';
+    } else {
+      book[i].style.display = 'none';
+    }
+  }
+}
