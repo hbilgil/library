@@ -255,3 +255,36 @@ const getBookByInput = () => { // a function to keep the data  entered in book f
   return new Book(title, author, pages, status)
 }
 
+const deleteAllBooks = () => { // a function to delete ALL books in the library by pushing delete library button
+  
+  Swal.fire({ //a special embedded function to have a customized alert box with better UI and styling
+    title: 'Are you sure?',
+    text: "Your library will be COMPLETELY deleted!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#3085d6',
+    confirmButtonText: 'Yes, delete it!',
+    cancelButtonText: 'No, cancel!',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire( //a special embedded function to have a customized alert box with better UI and styling
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+      library.deleteBooksInLibrary() //a static function inside the library will be revoked to delete ALL BOOKS in the library
+      saveInLocalStore() // saving books to call again and again when the web page refreshed or reopened
+      updateBooksContainer() //updating the library
+    } else if (
+      result.dismiss === Swal.DismissReason.cancel
+    ) {
+      Swal.fire( //a special embedded function to have a customized alert box with better UI and styling
+        'Cancelled',
+        'Your library is safe :)',
+        'error'
+      )
+    }
+  })
+}
