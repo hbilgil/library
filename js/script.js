@@ -336,3 +336,24 @@ const restoreInLocalStore = () => { //a function to restore locally when request
 }
 
 /*----------end of local store----------------*/
+
+
+//EVENT LISTENERS
+
+newBookBtn.addEventListener('click', openBookCreateModal);
+
+deleteLibraryBtn.addEventListener('click', deleteAllBooks);
+
+changeModeBtn.addEventListener('click', toggleMode);
+
+overlayWindow.addEventListener('click', closeBookCreateModal);
+
+plusIcon.addEventListener('click', openBookCreateModal);
+
+submitBtn.addEventListener('click', addBookToLibrary);
+
+searchInput.addEventListener('keyup', searchBookName);
+
+window.onload = onLoadElementCreation;
+
+window.addEventListener('DOMContentLoaded', restoreInLocalStore);
