@@ -111,3 +111,21 @@ const updateBooksContainer = () => { //update the book list everytime if any boo
 const resetBookList = () => { // resets the grid layout to prevent default abnormal events or things
   bookList.innerHTML = ''
 }
+
+const updateBookStatistics = () => { // function to keep and update book statistics dynamically
+  let bookCount = 0;
+  let readCount = 0;
+  let pagesCount = 0;
+  for(const book of library.books) {
+      bookCount++
+      if(book !== null && book.status === true) {
+        readCount++;
+        pagesCount += parseInt(book.pages); //making string data a number to prevent concatanation
+      }
+  }
+  totalBooks.textContent = bookCount;
+  totalPages.textContent = pagesCount;
+  totalRead.textContent = readCount;
+}
+
+
