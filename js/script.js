@@ -310,3 +310,8 @@ const checkZero = () => { //a function preventing the user enter multiple 0's
     document.getElementById("pages").value = '0';
   }
 }
+
+const toggleMode = () => { // a function to change mode when pressed into the changeModeBtn (gets darker when light and gets lighter when dark)
+  const bodyDarkElement = document.body;
+  bodyDarkElement.classList.toggle("dark-mode");
+}
