@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Library</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon.png"> <!--small-icon for the title-->
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="header">
+
+      <div class="header-logo">
+       
+        <img src="library.svg" alt="Library">
+
+        <h1>LIBRARY</h1>
+
+      </div>
+
+      <div class="header-right">
+
+        <div class="search-bar">
+
+          <label for="search"><img src="icons/search.png" alt="Search"></label> <!--the input label is an image-->
+          <input type="text" id="search" name="search" placeholder="Search books">
+  
+        </div>
+
+        <div class="buttons">
+
+          <button id="new-book-create-button" class="header-button new"> + New Book</button>
+          <button id="header-button-del" class="header-button del">Delete Library</button>
+  
+        </div>
+
+        <img id="display-mode-button" class="display-mode-button" src="icons/display-mode.png" alt="display-mode-pic">
+
+      </div>
+  
+    </div>
+
+    <div class="books-container">
+
+      <h3>Your Books</h3>
+
+      <ul id="book-list" class="book-cards">
+        <!--the book list is empty as it will be dinamically loaded by using JavaScript-->
+      </ul>
+
+    </div>
+
+    <div class="sidebar">
+
+      <div class="sidebar-title">
+        <h3>INFORMATION</h3>
+      </div>
+  
+      <ul class="sidebar-nav">
+  
+        <li class="nav-item"> 
+          <img src="icons/book.svg"> 
+          <p>Total # of Books 
+            <p id="total-books" class="bold total-books"></p> <!--the number will be handled by JavaScript function dinamically-->
+          </p>
+        </li>
+  
+        <li class="nav-item"> 
+          <img src="icons/read.svg">
+          <p># of Books Read 
+            <p id="read-books" class="bold read-books"></p> <!--the number will be handled by JavaScript function dinamically-->
+          </p>
+        </li>
+  
+        <li class="nav-item">
+          <img src="icons/pages.svg">
+          <p># of Pages Read 
+            <p id="total-pages" class="bold total-pages"></p> <!--the number will be handled by JavaScript function dinamically-->
+          </p>
+        </li>
+        
+      </ul>
+  
+    </div>
+
+    <div class="footer">
+
+      <p>Copyright ©
+  
+        <script>document.write(new Date().getFullYear())</script> <!--the date is loaded by JavaScript methods dinamically-->
+
+        <a href="https://github.com/hbilgil" target="_blank"> Halil Bilgil </a> <!--Please have a look at my github account and like my content.Thanks!..-->
+
+      </p>
+
+    </div>
+
+    <div class="book-create-modal" id="book-create-modal"> <!--the book create window will be invisible until it is revoked by JavaScript function dinamically-->
+
+      <form class="add-book-form" id="book-create-form"> <!--the book create form will be invisible until it is revoked by JavaScript function dinamically-->
+
+        <h3>Add new book</h3>
+
+        <input
+          class="input"
+          type="text"
+          id="title"
+          placeholder="Title"
+          maxlength="100"
+          required
+        />
+        <p class="error-message" id="error-message"></p>
+
+        <input
+          class="input"
+          type="text"
+          id="author"
+          placeholder="Author"
+          maxlength="100"
+          required
+        />
+
+        <input class="input" 
+        type="number" 
+        id="pages" 
+        placeholder="Pages" 
+        max="10000" 
+        minlength="10" 
+        maxlength="10" 
+        required
+        oninput="checkZero()"/> <!--the page input is forced to be entered a positive integer by a JavaScript function dinamically-->
+
+        <div class="status-check">
+          <label for="check-box">Have you read it?</label>
+          <input class="check-box" type="checkbox" id="checkBox" />
+        </div>
+
+        <button class="submit-button" id="submit-button" type="submit">Submit</button>
+
+      </form>
+      
+    </div>
+  
+    <div class="overlayWindow" id="overlayWindow"></div> <!--the overlay window will be invisible until it is revoked by JavaScript function dinamically-->
+
+  </div>
+
+<script src="js/sweetalert2.all.min.js"></script><!--script for customized alerts-->
+</body>
+</html>
