@@ -146,8 +146,8 @@ const createBookCard = (book) => { // function to create a bookcard by creating 
   deleteBookCardBtn.classList.add('delete')
 
   //Function scope add event Listeners for newly created elements
-  cardStatusBtn.addEventListener('click', toggleRead)
-  deleteBookCardBtn.addEventListener('click', removeBookFromLibrary)
+  cardStatusBtn.addEventListener('click', toggleRead) // function to change read status of book card
+  deleteBookCardBtn.addEventListener('click', removeBookFromLibrary) // function to remove the card from the library
 
   //Card Texts
   cardTitle.textContent = `${book.title}`
@@ -175,3 +175,10 @@ const createBookCard = (book) => { // function to create a bookcard by creating 
   bookCard.appendChild(cardStatusBtn)
 }
 
+const toggleRead = (e) => { 
+  const title = e.target.parentNode.firstChild.nextSibling.innerHTML; //find the exact place of card title compared to pushed element of cardStatusBtn
+  const book = library.getBook(title) //a static function inside the library will be revoked to have the exact book at book list
+  book.status = !book.status //changing status
+  saveInLocalStore() // saving books to call again and again when the web page refreshed or reopened
+  updateBooksContainer() //updating the library
+}
