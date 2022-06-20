@@ -107,3 +107,7 @@ const updateBooksContainer = () => { //update the book list everytime if any boo
   updateBookStatistics() //book statistics will be renewed
   onLoadElementCreation() //new book creation card comes after new book cards everytime
 }
+
+const resetBookList = () => { // resets the grid layout to prevent default abnormal events or things
+  bookList.innerHTML = ''
+}
