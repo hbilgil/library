@@ -66,3 +66,22 @@ const submitBtn = document.getElementById('submit-button');
 const totalBooks = document.getElementById('total-books');
 const totalRead = document.getElementById('read-books');
 const totalPages = document.getElementById('total-pages');
+
+const onLoadElementCreation = () => { //new book creation card will be handled by this javascript function to prevent book cards comes after
+
+  //These items were initialized and declared globally before function revoked
+
+  listItem.classList.add('add-new-book-card');
+  bookList.appendChild(listItem);
+
+  listItem.appendChild(listItemContent);
+    
+  
+  plusIcon.classList.add('plus-icon');
+  plusIcon.setAttribute('src', 'icons/plus.svg');
+  listItemContent.appendChild(plusIcon);
+    
+  
+  contentPara.textContent ='Add a new book';
+  listItemContent.appendChild(contentPara);
+}
