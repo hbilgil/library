@@ -175,10 +175,36 @@ const createBookCard = (book) => { // function to create a bookcard by creating 
   bookCard.appendChild(cardStatusBtn)
 }
 
-const toggleRead = (e) => { 
+const toggleRead = (e) => { // function to change read status of a chosen book dynamically
   const title = e.target.parentNode.firstChild.nextSibling.innerHTML; //find the exact place of card title compared to pushed element of cardStatusBtn
   const book = library.getBook(title) //a static function inside the library will be revoked to have the exact book at book list
   book.status = !book.status //changing status
   saveInLocalStore() // saving books to call again and again when the web page refreshed or reopened
   updateBooksContainer() //updating the library
 }
+
+const removeBookFromLibrary = (e) => { //function to remove a chosen book from the library
+  const title = e.target.nextSibling.innerHTML //find the exact place of card title compared to pushed element of deleteBookCardBtn
+  Swal.fire({ // a special embedded function to have a customized alert box with better UI and styling
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+      library.removeBook(title) //a static function inside the library will be revoked to remove the exact book at book list
+      saveInLocalStore() // saving books to call again and again when the web page refreshed or reopened
+      updateBooksContainer() //updating the library
+    }
+  })
+}
+
+
