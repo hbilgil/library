@@ -315,3 +315,24 @@ const toggleMode = () => { // a function to change mode when pressed into the ch
   const bodyDarkElement = document.body;
   bodyDarkElement.classList.toggle("dark-mode");
 }
+
+//LOCAL STORE FUNCTIONS
+
+const saveInLocalStore = () => { // a function to save locally to loose entered books in the library when page refreshed
+  localStorage.setItem('library', JSON.stringify(library.books))
+}
+  
+const JSONToBook = (book) => { //JSON keeps books as a string and this function will return arrays of books to keep in local library
+  return new Book(book.title, book.author, book.pages, book.status)
+}
+
+const restoreInLocalStore = () => { //a function to restore locally when requested
+  const books = JSON.parse(localStorage.getItem('library'))
+  if (books) {
+    library.books = books.map((book) => JSONToBook(book))
+  } else {
+    library.books = []
+  }
+}
+
+/*----------end of local store----------------*/
