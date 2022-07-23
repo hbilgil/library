@@ -354,6 +354,8 @@ submitBtn.addEventListener('click', addBookToLibrary);
 
 searchInput.addEventListener('keyup', searchBookName);
 
-window.onload = onLoadElementCreation;
-
 window.addEventListener('DOMContentLoaded', restoreInLocalStore);
+
+window.addEventListener('DOMContentLoaded', updateBooksContainer);
+
+window.onload = onLoadElementCreation;
